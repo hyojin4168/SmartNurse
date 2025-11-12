@@ -1,8 +1,8 @@
-# SmartNurse
+
 # 🏥 SmartNurse - 병동 간호기록 관리 시스템
 
 ## 📘 프로젝트 개요
-**SmartNurse**는 병동 간호사가 환자의 상태(Vital Sign)와 간호기록을  
+**SmartNurse**는 병동 간호사가 환자의 상태(Vital Sign)과 간호기록을  
 효율적으로 관리할 수 있도록 설계된 **의료정보시스템형 웹 프로젝트**입니다.  
 간호학 전공자의 임상 경험을 바탕으로 실제 간호기록 흐름과 병동 업무 프로세스를  
 시스템화하여 효율적인 의료 데이터 관리와 접근성을 높이는 것을 목표로 합니다.
@@ -22,33 +22,76 @@
 
 ## ⚙️ 개발 환경
 - **Language:** Java (JDK 11)
-- **Framework:** Spring MVC, MyBatis
-- **Database:** Oracle XE
-- **Frontend:** JSP, JSTL, Bootstrap, Chart.js
-- **Server:** Apache Tomcat 9
-- **Tools:** STS3, SQL Developer, ERDCloud, GitHub
+- **Framework:** Spring MVC, MyBatis  
+- **Database:** Oracle XE  
+- **Frontend:** JSP, JSTL, Bootstrap, Chart.js  
+- **Server:** Apache Tomcat 9  
+- **Tools:** STS3, SQL Developer, ERDCloud, GitHub  
 
 ---
 
-## 🗂️ 데이터베이스 설계 (예시)
-| Table | 주요 컬럼 |
-|--------|-----------|
-| `patient` | patient_id, name, gender, ward, admission_date |
-| `vital_sign` | vs_id, patient_id, temperature, blood_pressure, pulse, record_date |
-| `nursing_record` | record_id, patient_id, nurse_id, record_date, content |
+## 🗂️ 데이터베이스 설계
+
+### 📘 ERD 구조
+
+[ NURSE ]
+nurse_id (PK)
+name
+department
+position
+password
+
+    │ 1:N
+    ▼
+[ NURSING_RECORD ]
+record_id (PK)
+patient_id (FK)
+nurse_id (FK)
+record_date
+category
+content
+
+    ▲
+    │ N:1
+    │
+[ PATIENT ]
+patient_id (PK)
+name
+birth
+gender
+ward
+admission_date
+
+markdown
+코드 복사
+    │ 1:N
+    ▼
+[ VITAL_SIGN ]
+vs_id (PK)
+patient_id (FK)
+record_date
+temperature
+blood_pressure
+pulse
+
+📌 **핵심 관계 요약**
+- 한 명의 **간호사(NURSE)** 는 여러 간호기록을 작성할 수 있음 (1:N)  
+- 한 명의 **환자(PATIENT)** 는 여러 Vital Sign과 간호기록을 가짐 (1:N)  
+- **NURSING_RECORD** 와 **VITAL_SIGN** 은 `patient_id` 로 환자 테이블과 연결됨  
 
 ---
 
 ## 📈 시스템 구조
-View (JSP)
-↕
-Controller (Spring MVC)
-↕
-Service
-↕
-DAO (MyBatis)
-↕
-Oracle Database
+
+[ View (JSP) ]
+↓
+[ Controller (Spring MVC) ]
+↓
+[ Service ]
+↓
+[ DAO (MyBatis) ]
+↓
+[ Oracle Database ]
 
 ## 🧑‍💻 담당 역할
 - 개인 프로젝트 (Full Stack 개발)
@@ -85,4 +128,3 @@ Oracle Database
 ## 📎 GitHub Repository
 > 🔗 [SmartNurse Repository](#)  
 (※ 코드 업로드 후 링크 추가 예정)
-
