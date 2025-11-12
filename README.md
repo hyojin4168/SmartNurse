@@ -81,6 +81,7 @@ pulse
 
 ## 📈 시스템 구조
 
+```
 View (JSP)
 │
 ├─ Controller (Spring MVC)
@@ -90,6 +91,7 @@ View (JSP)
 ├─ DAO (MyBatis)
 │
 └─ Oracle Database
+```
 
 ## 🧑‍💻 담당 역할
 - 개인 프로젝트 (Full Stack 개발)
