@@ -62,8 +62,6 @@ gender
 ward
 admission_date
 
-markdown
-코드 복사
     │ 1:N
     ▼
 [ VITAL_SIGN ]
