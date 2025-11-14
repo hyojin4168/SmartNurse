@@ -34,43 +34,48 @@
 
 ### 📘 ERD 구조
 
+```text
 [ NURSE ]
-nurse_id (PK)
-name
-department
-position
-password
+- nurse_id (PK)
+- name
+- department
+- position
+- password
 
-    │ 1:N
-    ▼
+      │ 1:N
+      ▼
+
 [ NURSING_RECORD ]
-record_id (PK)
-patient_id (FK)
-nurse_id (FK)
-record_date
-category
-content
+- record_id (PK)
+- patient_id (FK)
+- nurse_id (FK)
+- record_date
+- category
+- content
 
-    ▲
-    │ N:1
-    │
+      ▲
+      │ N:1
+      │
+
 [ PATIENT ]
-patient_id (PK)
-name
-birth
-gender
-ward
-admission_date
+- patient_id (PK)
+- name
+- birth
+- gender
+- ward
+- admission_date
 
-    │ 1:N
-    ▼
+      │ 1:N
+      ▼
+
 [ VITAL_SIGN ]
-vs_id (PK)
-patient_id (FK)
-record_date
-temperature
-blood_pressure
-pulse
+- vs_id (PK)
+- patient_id (FK)
+- record_date
+- temperature
+- blood_pressure
+- pulse
+```
 
 📌 **핵심 관계 요약**
 - 한 명의 **간호사(NURSE)** 는 여러 간호기록을 작성할 수 있음 (1:N)  
